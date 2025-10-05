@@ -36,6 +36,7 @@ export function AboutMeConsole() {
     },
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isInit, setIsInit] = useState(true)
 
   const handleConsoleClick = () => {
     inputRef.current?.select();
@@ -71,11 +72,12 @@ export function AboutMeConsole() {
       const newHist = [...prev, { isInput: true, text: cmd }, { isInput: false, text: res } ];
       return newHist;
     });
-
+    setIsInit(false);
   }
 
   useEffect(() => {
-
+    if(isInit)
+      return;
     inputRef.current?.scrollIntoView({behavior:"smooth", block:"nearest"})
   }, [hist])
 
