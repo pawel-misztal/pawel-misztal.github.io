@@ -41,7 +41,7 @@ export function HoleView() {
       initial={{ opacity: 0 }}
       animate={{ opacity: visible ? 1 : 0, transition: { duration: 4, delay:0 } }}
       ref={threeRef}
-      className="w-screen h-full fixed -z-20 pointer-events-auto"
+      className="w-screen h-lvh fixed -z-20 pointer-events-auto"
     ></motion.div>
   );
 }

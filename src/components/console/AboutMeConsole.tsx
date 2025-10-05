@@ -37,6 +37,15 @@ export function AboutMeConsole() {
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isInit, setIsInit] = useState(true)
+  
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+     if (divRef.current) {
+      const rect = divRef.current.getBoundingClientRect();
+      console.log(rect.height);
+    }
+  },[])
 
   const handleConsoleClick = () => {
     inputRef.current?.select();
@@ -81,6 +90,8 @@ export function AboutMeConsole() {
     inputRef.current?.scrollIntoView({behavior:"smooth", block:"nearest"})
   }, [hist])
 
+
+
   return (
     <motion.div
       initial={{
@@ -98,12 +109,12 @@ export function AboutMeConsole() {
       }}
       viewport={{ once: true }}
       onClick={handleConsoleClick}
-      className=" overflow-hidden h-[480px] max-h-dvh w-full bg-zinc-900 rounded-4xl border-zinc-700 shadow-xl shadow-zinc-950 border-2 flex flex-col "
+      className=" overflow-hidden h-[50dvh] lg:h-[480px] max-h-dvh w-full bg-zinc-900 rounded-4xl border-zinc-700 shadow-xl shadow-zinc-950 border-2 flex flex-col "
     >
       <h2 className="w-full bg-zinc-800  px-6 py-2 font-bold text-2xl border-zinc-700 border-b-2">
         O mnie
       </h2>
-      <div className="w-full overflow-y-scroll px-4 py-2 flex flex-col gap-2 pb-4">
+      <div ref={divRef} className="w-full overflow-y-scroll px-4 py-2 flex flex-col gap-2 pb-4">
         {hist.map((val, index) => {
           return val.isInput ? (
             <ConsoleFilledInput text={val.text} key={index} />

@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <Navbar activateScroll={window.innerHeight *0.7} animationDuration={0.4} />
-      <div className="w-full h-dvh relative flex flex-col justify-center items-start">
+      <div className="w-full h-lvh relative flex flex-col justify-center items-start">
         <HoleView />
         <HoleGradientTransition />
         {/* <div
@@ -79,8 +79,8 @@ function App() {
           <BouncyScroll text={"scroll"} />
         </div>
       </div>
-      <div id="about" className="pt-20 flex flex-row justify-center">
-        <div className="flex flex-row justify-center w-full lg:max-w-5xl gap-6 px-4">
+      <div id="about" className="pt-20 justify-center">
+        <div className="mx-auto flex flex-col-reverse lg:flex-row items-center justify-center w-full lg:max-w-5xl gap-6 px-4">
           <AboutMeConsole />
           <motion.img
             initial={{
@@ -98,7 +98,7 @@ function App() {
             }}
             viewport={{ once: true }}
             src="mordka.webp"
-            className="h-[480px] max-h-dvh rounded-4xl border-2 border-zinc-700 shadow-xl shadow-zinc-950"
+            className="max-h-[480px] max-w-[348px] w-[80dvw]  rounded-4xl border-2 border-zinc-700 shadow-xl shadow-zinc-950"
           />
         </div>
       </div>

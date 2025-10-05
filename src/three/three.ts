@@ -266,11 +266,15 @@ export class ThreeRenderer {
 
   private handleResize = () => {
     const clientRect = this.container.getBoundingClientRect();
-    this.camera.aspect = clientRect.width / clientRect.height;
+    const w = clientRect.width;
+    const h = clientRect.height;
+    // const w = window.innerWidth;
+    // const h = window.innerHeight;
+    this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(clientRect.width, clientRect.height);
+    this.renderer.setSize(w, h);
     this.renderer.setPixelRatio(window.devicePixelRatio);
-    this.composer.setSize(clientRect.width, clientRect.height);
+    this.composer.setSize(w, h);
     this.composer.setPixelRatio(window.devicePixelRatio);
   };
 
