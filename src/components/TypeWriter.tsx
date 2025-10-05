@@ -11,6 +11,7 @@ import {
   type Variant,
   type Variants,
 } from "motion/react";
+import { Carret } from "./Carret";
 
 interface TypeWriterProps extends HTMLMotionProps<"p"> {
   texts: string[];
@@ -72,18 +73,9 @@ export function TypeWriter({ texts, ...props }: TypeWriterProps) {
           </motion.span>
         ))}
       </motion.p>
-      <motion.div
-        initial={{opacity:0}}
-        animate={{opacity:[0,1,0]}}
-        transition={{
-          duration:1,
-          repeat:Infinity,
-          repeatType: "loop"
-        }}
-        
-        className="h-6 w-0.5 bg-white"
-        style={{ backgroundColor: props.color }}
-      ></motion.div>
+      <Carret color={props.color!}/>
     </div>
   );
 }
+
+

@@ -4,15 +4,12 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 // Opcjonalnie: ShaderPass i CopyShader do finalnego renderowania
-import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import { CopyShader } from "three/examples/jsm/shaders/CopyShader.js";
-import { color } from "three/tsl";
-import { BloomPass, OrbitControls } from "three/examples/jsm/Addons.js";
-import { th } from "motion/react-client";
+import { OrbitControls } from "three/examples/jsm/Addons.js";
 export class ThreeRenderer {
   private container: HTMLElement;
   private animationID?: number;
   private prevTime!: number;
+  public scrollY: number = 0;
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   renderer: THREE.WebGLRenderer;
@@ -34,11 +31,11 @@ export class ThreeRenderer {
   angVel!: Float32Array<ArrayBuffer>;
   angle!: Float32Array<ArrayBuffer>;
   rand!: Float32Array<ArrayBuffer>;
-  angVelStars: Float32Array<ArrayBuffer>;
-  angleStars: Float32Array<ArrayBuffer>;
-  xyDist: Float32Array<ArrayBuffer>;
-  particlesStars: THREE.Points<THREE.BufferGeometry<THREE.NormalBufferAttributes, THREE.BufferGeometryEventMap>, THREE.PointsMaterial, THREE.Object3DEventMap>;
-  particleCountStars: number;
+  angVelStars!: Float32Array<ArrayBuffer>;
+  angleStars!: Float32Array<ArrayBuffer>;
+  xyDist!: Float32Array<ArrayBuffer>;
+  particlesStars!: THREE.Points<THREE.BufferGeometry<THREE.NormalBufferAttributes, THREE.BufferGeometryEventMap>, THREE.PointsMaterial, THREE.Object3DEventMap>;
+  particleCountStars!: number;
 
   public constructor(container: HTMLElement) {
     this.container = container;
@@ -153,7 +150,7 @@ export class ThreeRenderer {
 
     this.camera.position.z = 5;
     this.camera.position.x = 0;
-    this.camera.position.y = 2;
+    this.camera.position.y = 3
     this.camera.lookAt(
       new THREE.Vector3(-1,0,0)
     );
@@ -161,6 +158,7 @@ export class ThreeRenderer {
     const angle = -10 * Math.PI / 180; // np. 45 stopni
 
     this.camera.rotateOnAxis(axis, angle);
+    this.camera.position.y = 2.5
 
     // this.controlls.update();
   }
@@ -294,6 +292,9 @@ export class ThreeRenderer {
     const speed = 1;
     this.planet.position.x = Math.sin(timeSec * speed) * dist;
     this.planet.position.z = Math.cos(timeSec * speed) * dist;
+
+    
+    this.camera.position.y = 2.5 - this.scrollY
     // this.controlls.update(dt); 
     
     this.particlesStars?.rotateY(dt * 0.01);
