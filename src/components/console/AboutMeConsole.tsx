@@ -43,7 +43,7 @@ export function AboutMeConsole() {
   useEffect(() => {
      if (divRef.current) {
       const rect = divRef.current.getBoundingClientRect();
-      console.log(rect.height);
+      // console.log(rect.height);
     }
   },[])
 
@@ -52,7 +52,7 @@ export function AboutMeConsole() {
   };
 
   function handleConsoleSubmit(cmd: string) {
-    console.log("submit action");
+    // console.log("submit action");
     if(cmd === "clear") {
       setHist([]);
       return;
@@ -72,9 +72,12 @@ export function AboutMeConsole() {
     if(cmd === CMD_RES.aboutMe.cmd) {
       res = CMD_RES.aboutMe.res
     }
-    if(cmd === CMD_RES.help.cmd) {
+    else if(cmd === CMD_RES.help.cmd) {
       res = CMD_RES.help.res
     }
+    else (
+      res = "Chyba zrobiłeś literówkę, wpisz 'help' aby zobaczyć dostepne komendy"
+    )
 
 
     setHist((prev) => {
@@ -109,9 +112,9 @@ export function AboutMeConsole() {
       }}
       viewport={{ once: true }}
       onClick={handleConsoleClick}
-      className=" overflow-hidden h-[50dvh] lg:h-[480px] max-h-dvh w-full bg-zinc-900 rounded-4xl border-zinc-700 shadow-xl shadow-zinc-950 border-2 flex flex-col "
+      className=" overflow-hidden h-[50dvh] lg:h-[480px] max-h-dvh w-full bg-zinc-900 rounded-4xl border-zinc-700 shadow-xl shadow-zinc-950/50 border-2 flex flex-col "
     >
-      <h2 className="w-full bg-zinc-800  px-6 py-2 font-bold text-2xl border-zinc-700 border-b-2">
+      <h2 className="w-full bg-zinc-800  px-6 py-2 font-bold text-4xl border-zinc-700 border-b-2 uppercase">
         O mnie
       </h2>
       <div ref={divRef} className="w-full overflow-y-scroll px-4 py-2 flex flex-col gap-2 pb-4">

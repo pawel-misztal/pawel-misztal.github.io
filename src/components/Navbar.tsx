@@ -59,10 +59,11 @@ export function Navbar({ activateScroll , animationDuration = 0.4}: NavbarProps)
           >
             <div className="hidden md:flex  flex-row gap-6 items-center ">
               <a href="#" className="mr-auto">
-                <h1 className="text-4xl font-bold text-white">Paweł Misztal</h1>
+                <h1 className="text-4xl font-bold text-white hover:text-shadow-lg hover:text-shadow-zinc-50/20 transition-all">Paweł Misztal</h1>
               </a>
               <ButtonNavbar href="#about" text="O mnie" />
               <ButtonNavbar href="#experience" text="Doświadczenie" />
+              <ButtonNavbar href="#projects" text="Projekty" />
               <ButtonNavbar href="#" text="Blog ⇗" />
             </div>
 

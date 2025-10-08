@@ -43,8 +43,8 @@ export class ThreeRenderer {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x18181b);
     const clientRect = this.container.getBoundingClientRect();
-    console.log(clientRect);
-    console.log(window.devicePixelRatio);
+    // console.log(clientRect);
+    // console.log(window.devicePixelRatio);
     this.camera = new THREE.PerspectiveCamera(
       30,
       clientRect.width / clientRect.height,
