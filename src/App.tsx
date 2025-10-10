@@ -18,12 +18,33 @@ import Experience from "./components/Experience";
 import { MainTile } from "./components/MainTile";
 import { ButtonNavbar } from "./components/ButtonNavbar";
 import Education from "./components/Education";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import {
+  AddTranslations,
+  Translate,
+  translations,
+  UseTranslate,
+} from "./utils/translator";
+import { Skills } from "./components/Skills";
+import { Footer } from "./components/Footer";
+
+translations.set("test-translation", {
+  pl: "testowe tłumaczenie",
+  en: "test translation",
+});
 
 function App() {
   const [count, setCount] = useState(0);
 
-  console.log(navigator.language);
-  console.log(navigator.languages);
+  // console.log(navigator.language);
+  // console.log(navigator.languages);
+
+  // console.log(Translate("experience-title",navigator.language));
+  // console.log(Translate("experience-title","en-US"));
+  // console.log(Translate("experience-title sadavs",navigator.language));
+
+  // console.log(Translate("test-translation",navigator.language));
+  // console.log(Translate("test-translation","en-US"));
 
   return (
     <>
@@ -45,7 +66,8 @@ function App() {
             <TypeWriter
               className="text-white text-xl h-5"
               texts={[
-                "Full Stack Developer",
+                "Full-Stack Developer",
+                ".Net Developer",
                 "VR Developer",
                 "Unity Developer",
                 "Average Code Enjoyer",
@@ -73,55 +95,16 @@ function App() {
 
       <Experience />
       <AboutMe />
-
       <ProffesionalExperience />
       <Projects />
-      <MainTile id="skills" tileTitle="Co potrafię">
-        <h1>Specjalizuję się w</h1>
-        <h1>Mam też więdzę o</h1>
-        <h1>Miałem też styczność z</h1>
-      </MainTile>
-      
+      <Skills />
       <Education />
-
-
-      <motion.div
-        initial={{ opacity: 0, translateY: 100 }}
-        whileInView={{ opacity: 1, translateY: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="w-full my-30"
-      >
-        <h1 className="text-center text-4xl font-bold uppercase py-8">
-          Chcesz dowiedzieć się więcej?
-        </h1>
-
-        <div className="flex flex-col w-full items-center py-8">
-          <div className="flex flex-row gap-4 items-center">
-            <h1 className="text-2xl font-bold py-6">Zapraszam na bloga</h1>
-            <div>
-              <ButtonNavbar href="#" text="Blog ⇗" />
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-4 items-center">
-            <h1 className="text-2xl font-bold py-6">
-              Skontaktuj się przez Linkedin
-            </h1>
-            <div>
-              <ButtonNavbar
-                blank={true}
-                href="https://www.linkedin.com/in/pawe%C5%82misztal/"
-                text="Linkedin ⇗"
-              />
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* <div className="h-dvh"></div> */}
+      <Footer />
     </>
   );
 }
 
 export default App;
+
+
+

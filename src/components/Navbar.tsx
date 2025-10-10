@@ -10,21 +10,41 @@ import {
 import { tr } from "motion/react-client";
 import { useEffect, useState } from "react";
 import { ButtonNavbar } from "./ButtonNavbar";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { AddTranslations, UseTranslate } from "../utils/translator";
 
 interface NavbarProps {
   activateScroll: number;
   animationDuration: number;
 }
 
+
+AddTranslations([
+  {id:"experience", t:{pl:"Doświadczenie",en:"Experience"}},
+  {id:"projects", t:{pl:"Projekty",en:"Projects"}}
+])
+
 export function Navbar({ activateScroll , animationDuration = 0.4}: NavbarProps) {
   // const height = 80;
   const { scrollY } = useScroll();
   const [show, setShow] = useState(false);
+  const {t} = UseTranslate();
 
   useMotionValueEvent(scrollY, "change", (scrollY) => {
     if (!show && scrollY > activateScroll) setShow(true);
     else if (show && scrollY < activateScroll) setShow(false);
   });
+
+  const {currentLanguage, setCurrentLanguage} = UseTranslate();
+
+  function handleChangeLang() {
+    setCurrentLanguage((curLang:string):string => {
+      if(curLang.toLowerCase() == "pl")
+        return "en"
+      else 
+        return "pl"
+    } );
+  }
 
 
   return (
@@ -61,10 +81,11 @@ export function Navbar({ activateScroll , animationDuration = 0.4}: NavbarProps)
               <a href="#" className="mr-auto">
                 <h1 className="text-4xl font-bold text-white hover:text-shadow-lg hover:text-shadow-zinc-50/20 transition-all">Paweł Misztal</h1>
               </a>
-              <ButtonNavbar href="#about" text="O mnie" />
-              <ButtonNavbar href="#experience" text="Doświadczenie" />
-              <ButtonNavbar href="#projects" text="Projekty" />
-              <ButtonNavbar href="#" text="Blog ⇗" />
+              <ButtonNavbar  text={currentLanguage} onClick={handleChangeLang}/>
+              <ButtonNavbar href="#about" text={t("aboutme")} />
+              <ButtonNavbar href="#experience" text={t("experience")} />
+              <ButtonNavbar href="#projects" text={t("projects")} />
+              {/* <ButtonNavbar href="#" text="Blog"><FaArrowUpRightFromSquare className="h-full"/></ButtonNavbar> */}
             </div>
 
             <div className="flex md:hidden flex-row-reverse">

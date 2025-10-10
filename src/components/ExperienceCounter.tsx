@@ -2,6 +2,7 @@ import { AnimatePresence, invariant, motion, useInView } from "motion/react";
 import { text } from "motion/react-client";
 import { useEffect, useRef, useState } from "react";
 import { dateDiff } from "../utils/date";
+import { AddTranslations, translations, UseTranslate } from "../utils/translator";
 
 interface AnimatedCounterProps {
   value: number;
@@ -66,7 +67,15 @@ function AnimatedCounter({
   );
 }
 
+AddTranslations(
+  [
+    {id:"yearsProgramming",t:{pl:"Lat programowania:",en:"Years programing:"}},
+    {id:"yearsProffesional",t:{pl:"Lat zawodowo:",en:"Years proffesionally:"}}
+  ])
+
 export default function ExperienceCounter() {
+  const {t} = UseTranslate();
+
   const animTime = 0.2;
   const heigth = 80;
   const container = useRef(null);
@@ -126,11 +135,11 @@ export default function ExperienceCounter() {
       <div ref={container} className="flex flex-col md:flex-row w-full items-center justify-center gap-20 my-8 text-3xl ">
         {/* <AnimatedCounter transitionTime={0.2} height={80}  */}
         <div className="flex flex-col justify-center items-center">
-          <h3>Lat programowania:</h3>
+          <h3>{t("yearsProgramming")}</h3>
         <AnimatedCounter transitionTime={animTime} height={heigth} value={counterCodingYears} />
         </div>
         <div className="flex flex-col justify-center items-center">
-          <h3>Lat zawodowo:</h3>
+          <h3>{t("yearsProffesional")}</h3>
         <AnimatedCounter transitionTime={animTime} height={heigth} value={counterProfessionalYears} />
         </div>
       </div>

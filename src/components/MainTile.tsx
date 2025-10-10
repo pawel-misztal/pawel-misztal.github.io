@@ -31,7 +31,7 @@ export function MainTile({
         }}
         transition={{
           duration: 1,
-          delay: 0.4,
+          // delay: 0.4,
         }}
         className="mx-auto flex flex-col items-start justify-center w-full lg:max-w-5xl px-6 py-6 bg-zinc-900/10
          backdrop-blur-sm rounded-[3rem] border-2 border-zinc-700"

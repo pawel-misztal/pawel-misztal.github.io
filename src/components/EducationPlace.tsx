@@ -1,19 +1,31 @@
 import type React from "react";
+import { AddTranslations, UseTranslate } from "../utils/translator";
 
 interface EducationPlaceProps {
   where: string;
   studyTime: string;
+  spec?:string;
   title: string;
   finalGrade:string;
   children?: React.ReactNode;
 }
+
+AddTranslations([
+  
+  {id:"spec",t:{pl:"Specjalizacja: ", en:"Specialization: "}},
+  {id:"fgrade",t:{pl:"Ocena końcowa: ", en:"Final grade: "}},
+
+])
+
 export default function EducationPlace({
   where: companyName,
   studyTime: workTime,
   title: companyPosition,
+  spec,
   finalGrade,
   children,
 }: EducationPlaceProps) {
+  const {t} = UseTranslate()
   return (
     <div className="flex flex-row gap-4 w-full justify-start">
       <div className="min-w-0.5 bg-white mx-12 relative">
@@ -24,8 +36,9 @@ export default function EducationPlace({
           <h3 className="font-bold text-3xl  uppercase">{companyName}</h3>
           <p className="font-bold text-xl">{companyPosition}</p>
         </div>
+        {spec && <p className="font-bold  ">{t("spec") + spec}</p>}
         <p>{workTime}</p>
-        <p className="font-bold">Ocena końcowa: {finalGrade}</p>
+        <p className="font-bold">{t("fgrade") + finalGrade}</p>
       </div>
 
       <div className="py-10 flex flex-col gap-2">{children}</div>

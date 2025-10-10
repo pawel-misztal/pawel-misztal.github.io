@@ -1,4 +1,5 @@
 import type React from "react";
+import { AddTranslations, UseTranslate } from "../utils/translator";
 
 interface ExperienceCompanyProps {
   companyName: string;
@@ -7,6 +8,12 @@ interface ExperienceCompanyProps {
   technologies: string[];
   children?: React.ReactNode;
 }
+
+
+AddTranslations([
+  {id:"technologies",t:{pl:"Technologie: ",en:"Technologies: "}}
+])
+
 export default function ExperienceCompany({
   companyName,
   workTime,
@@ -14,6 +21,7 @@ export default function ExperienceCompany({
   technologies = [],
   children,
 }: ExperienceCompanyProps) {
+  const {t} = UseTranslate();
   return (
     <div className="flex flex-row gap-4">
       <div className="min-w-0.5 bg-white mx-12 relative">
@@ -32,7 +40,7 @@ export default function ExperienceCompany({
         {children}
         <hr/>
         <div>
-          <h4 className="inline-block mr-2 font-medium">Technologie: </h4>
+          <h4 className="inline-block mr-2 font-medium">{t("technologies")}</h4>
           {technologies.map((val, i) => {
             return (
               <p className="inline-block mr-1" key={i}>

@@ -1,7 +1,15 @@
+import { AddTranslations, translations, UseTranslate } from "../utils/translator";
 import { AboutMeConsole } from "./console/AboutMeConsole";
 import {motion} from "motion/react"
 
+
+AddTranslations(
+  [
+    {id:"consoleInteractive",t:{pl:"Konsola jest interaktywna, wpisz \"help\" aby zobaczyć dostępne komendy",en:"The console is interactive, type \"help\" to see available commands"}},
+  ])
+
 export default function AboutMe() {
+  const {t} = UseTranslate()
   return (
     <div id="about" className="pt-20 pb-40">
         <div className="mx-auto flex flex-col-reverse lg:flex-row items-center justify-center w-full lg:max-w-5xl gap-6 px-4">
@@ -25,7 +33,7 @@ export default function AboutMe() {
             className="max-h-[480px] max-w-[348px] w-[80dvw]  rounded-4xl border-2 border-zinc-700 shadow-xl shadow-zinc-950/50"
           />
         </div>
-        <p className="text-center py-6 text-zinc-500">Konsola jest interaktywna, wpisz "help" aby zobaczyć dostępne komendy</p>
+        <p className="text-center py-6 text-zinc-500">{t("consoleInteractive")}</p>
       </div>
   )
 }
