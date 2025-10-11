@@ -100,6 +100,13 @@ AddTranslations([
       en: "Microprocessor-controlled robot arm ",
     },
   },
+  {
+    id:"catFeeder-title",
+    t: {
+      pl:"Automatyczny karmnik dla kota 🐈",
+      en:"Automatic cat feeder 🐈"
+    }
+  }
 ]);
 
 export const PROJECTS: ProjectDesc[] = [
@@ -122,7 +129,27 @@ export const PROJECTS: ProjectDesc[] = [
       TECHNOLOGIES.postgresql,
       TECHNOLOGIES.xUnitTest,
       TECHNOLOGIES.jwt,
+      TECHNOLOGIES.ts_js
     ],
+  },
+  {
+    title:"catFeeder-title",
+    tags: [TAGS.fullstack,TAGS.mechatronics],
+    imgSrc: ["catFeeder.webp"],
+    url: [{description:"Github",link:"https://github.com/pawel-misztal/CatFeeder"}],
+    shortDescription:{
+      pl:"Aplikacji dla użądzenia IoT w postaci automatycznego karmnika dla kota",
+      en:"An application for an IoT device in the form of an automatic cat feeder"},
+    longDescription:{
+      pl:"Projekt oraz wykonanie aplikacji webowej dla mikrokontrolera esp32. Część fizyczna również została wykonana, jednak wyłącznie jako prototyp na płytce stykowej.\n\nCechy projektu:\n- ESPmDNS - wykorzystanie serwera mDNS, co pozwoliło na znajdywanie urządzenia w sieci lokalnej po przyjaznym adresie \"catfeeder.local\"\n- REST API - wykonanie api rest'owego z wykorzystaniem serwera http na mikrokontrolerze esp32\n- frontend - wykorzystanie czystego html z javascript, bez zbędnych bibliotek, pozwoliło na zoptymalizowanie rozmiaru kodu frontendu do 7,31KB! co jest kluczowe w systemach wbudowanych\n- LittleFS - wykorzystanie systemu plików, przez co nie jest koniecznie przebudowaywanie kodu esp32 aby wgrać nowy kod aplikacji internetowej\n- Poziom karmy - wykrywanie poziomu karmy za pomocą czujnika ultradźwiękowego\n- Wydawanie posiłku na rządanie - możliwość wydania porcji posiłku w każdej chwili\n- Harmonogram posiłków - możliwość zaplanowania harmonogramu wydawania posiłków kotu\n- ArduinoJson - wykorzystanie biblioteki JSON do przechowywania danych na mikrokontrolerze",
+      en:"Design and implementation of a web application for the ESP32 microcontroller. The physical part was also completed, but only as a prototype on a breadboard.\n\nProject features:\n- ESPmDNS - using an mDNS server, which allowed for finding a device on the local network using the friendly address \"catfeeder.local\"\n- REST API - implementing a REST API using an HTTP server on the ESP32 microcontroller\n- frontend - using pure HTML with JavaScript, without unnecessary libraries, allowed for optimizing the frontend code size to 7.31KB! which is crucial in embedded systems\n- LittleFS - use of the file system, which makes it unnecessary to rebuild the esp32 code to upload new web application code\n- Food level - detecting the food level using an ultrasonic sensor\n- Serving a meal on demand - the ability to serve a portion of the meal at any time\n- Meal scheduler - the ability to plan a schedule for serving meals to the cat\n- ArduinoJson - using the JSON library to store data on the microcontroller"},
+    technologies:[
+      TECHNOLOGIES.cpp,
+      TECHNOLOGIES.html,
+      TECHNOLOGIES.esp32,
+      TECHNOLOGIES.ts_js,
+      TECHNOLOGIES.tailwindcss
+    ]
   },
   {
     title: "Notes-title",
@@ -143,6 +170,7 @@ export const PROJECTS: ProjectDesc[] = [
       TECHNOLOGIES.jwt,
       TECHNOLOGIES.sqlServer,
       TECHNOLOGIES.efc,
+      TECHNOLOGIES.ts_js,
       TECHNOLOGIES.docker,
     ],
     tags: [TAGS.fullstack],
@@ -173,6 +201,7 @@ export const PROJECTS: ProjectDesc[] = [
       TECHNOLOGIES.expressJS,
       TECHNOLOGIES.sqlLite,
       TECHNOLOGIES.postman,
+      TECHNOLOGIES.ts_js,
       // TECHNOLOGIES.oAuth20
     ],
     url: [
@@ -207,6 +236,7 @@ export const PROJECTS: ProjectDesc[] = [
       TECHNOLOGIES.tailwindcss,
       TECHNOLOGIES.expressJS,
       TECHNOLOGIES.postgresql,
+      TECHNOLOGIES.ts_js
     ],
   },
 

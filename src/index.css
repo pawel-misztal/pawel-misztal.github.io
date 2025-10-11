@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @tailwind utilities;
 
+/* @layer base {
+  html {
+    @apply text-white
+  }
+} */
+
 @theme {
   --text-shadow-xxl: 0px 4px 0px black,
                      0px -4px 0px black,
@@ -30,7 +36,7 @@
 :root {
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255);
   background-color: var(--color-zinc-900);
 
   font-synthesis: none;
@@ -39,18 +45,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #ffffff;
   }
   button {
     background-color: #f9f9f9;
   }
-}
+} */
 
 /* width */
 ::-webkit-scrollbar {

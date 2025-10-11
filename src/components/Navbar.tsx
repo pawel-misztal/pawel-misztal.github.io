@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { ButtonNavbar } from "./ButtonNavbar";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { AddTranslations, UseTranslate } from "../utils/translator";
+import PolishSVG from "../assets/polish.svg"
+import EnglishSVG from "../assets/english.svg"
 
 interface NavbarProps {
   activateScroll: number;
@@ -81,7 +83,10 @@ export function Navbar({ activateScroll , animationDuration = 0.4}: NavbarProps)
               <a href="#" className="mr-auto">
                 <h1 className="text-4xl font-bold text-white hover:text-shadow-lg hover:text-shadow-zinc-50/20 transition-all">Paweł Misztal</h1>
               </a>
-              <ButtonNavbar  text={currentLanguage} onClick={handleChangeLang}/>
+              <ButtonNavbar  text={currentLanguage.toUpperCase()} onClick={handleChangeLang}>
+                {currentLanguage === "pl" && <img src={PolishSVG} height={26} width={26}/>}
+                {currentLanguage === "en" && <img src={EnglishSVG} height={26} width={26}/>}
+                </ButtonNavbar>
               <ButtonNavbar href="#about" text={t("aboutme")} />
               <ButtonNavbar href="#experience" text={t("experience")} />
               <ButtonNavbar href="#projects" text={t("projects")} />
