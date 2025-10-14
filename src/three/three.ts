@@ -10,32 +10,32 @@ export class ThreeRenderer {
   private animationID?: number;
   private prevTime!: number;
   public scrollY: number = 0;
-  scene: THREE.Scene;
-  camera: THREE.PerspectiveCamera;
-  renderer: THREE.WebGLRenderer;
-  disposables: DisposeTracker;
-  sun!: THREE.Mesh<
+  private scene: THREE.Scene;
+  private camera: THREE.PerspectiveCamera;
+  private renderer: THREE.WebGLRenderer;
+  private disposables: DisposeTracker;
+  private sun!: THREE.Mesh<
     THREE.SphereGeometry,
     THREE.Material,
     THREE.Object3DEventMap
   >;
-  planet!: THREE.Mesh<
+  private planet!: THREE.Mesh<
     THREE.SphereGeometry,
     THREE.Material,
     THREE.Object3DEventMap
   >;
-  composer: EffectComposer;
-  controlls!: OrbitControls;
-  particleCount!: number;
-  particles!: THREE.Points<THREE.BufferGeometry<THREE.NormalBufferAttributes, THREE.BufferGeometryEventMap>, THREE.PointsMaterial, THREE.Object3DEventMap>;
-  angVel!: Float32Array<ArrayBuffer>;
-  angle!: Float32Array<ArrayBuffer>;
-  rand!: Float32Array<ArrayBuffer>;
-  angVelStars!: Float32Array<ArrayBuffer>;
-  angleStars!: Float32Array<ArrayBuffer>;
-  xyDist!: Float32Array<ArrayBuffer>;
-  particlesStars!: THREE.Points<THREE.BufferGeometry<THREE.NormalBufferAttributes, THREE.BufferGeometryEventMap>, THREE.PointsMaterial, THREE.Object3DEventMap>;
-  particleCountStars!: number;
+  private composer: EffectComposer;
+  private controlls!: OrbitControls;
+  private particleCount!: number;
+  private particles!: THREE.Points<THREE.BufferGeometry<THREE.NormalBufferAttributes, THREE.BufferGeometryEventMap>, THREE.PointsMaterial, THREE.Object3DEventMap>;
+  private angVel!: Float32Array<ArrayBuffer>;
+  private angle!: Float32Array<ArrayBuffer>;
+  private rand!: Float32Array<ArrayBuffer>;
+  private angVelStars!: Float32Array<ArrayBuffer>;
+  private angleStars!: Float32Array<ArrayBuffer>;
+  private xyDist!: Float32Array<ArrayBuffer>;
+  private particlesStars!: THREE.Points<THREE.BufferGeometry<THREE.NormalBufferAttributes, THREE.BufferGeometryEventMap>, THREE.PointsMaterial, THREE.Object3DEventMap>;
+  private particleCountStars!: number;
 
   public constructor(container: HTMLElement) {
     this.container = container;

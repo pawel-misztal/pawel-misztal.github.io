@@ -39,8 +39,8 @@ AddTranslations([
   {
     id:"res_aboutme",
     t: {
-      pl:"Jestem progranistą z kilkuletnim doświadczeniem. Wcześniejsze duże doświadczenie z C# i Unity w projektach gier VR oraz AR, potrafię sukcesywnie przełożyć na tworzenie jakościowych aplikacji webowych. W ostatnim czasie intensywnie rozwijam swoje kompetencje jako fullstack developer aplikacje bazy danych , webowe oparte na ASP.NET Core, React, TypeScript SQL. Jestem osobą ambitną, zaangażowaną, nastawioną na rozwiązywanie problemów, lubiącą współpracę i ciągłe poszerzanie wiedzy.",
-      en:"I am a programmer with several years of experience. I have extensive previous experience with C# and Unity in VR and AR game projects, which I can successfully translate into creating high-quality web applications. Recently, I have been intensively developing my skills as a full-stack developer of database and web applications based on ASP.NET Core, React, and TypeScript SQL. I am an ambitious, committed person, focused on solving problems, and I enjoy collaboration and constantly expanding my knowledge."
+      pl:"Jestem programistą z doświadczeniem w fullstack web developmencie (ASP.NET Core, React, Node.js) oraz projektach VR/AR w Unity. Łączę backend, frontend i technologie 3D, tworząc opracowane rozwiązania. W pracy stawiam na jakość kodu, architekturę i współpracę zespołową. Szybko uczę się nowych technologii i skutecznie adaptuję do zmieniających się wymagań projektowych.",
+      en:" I am a developer with experience in full-stack web development (ASP.NET Core, React, Node.js) and VR/AR projects in Unity. I combine backend, frontend, and 3D technologies to create olished solutions. In my work, I emphasize code quality, architecture, and teamwork. I learn new technologies quickly and effectively adapt to changing project requirements."
     }
   }
 ]);

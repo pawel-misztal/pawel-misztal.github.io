@@ -13,7 +13,7 @@ export default function Experience() {
   const {t} = UseTranslate();
   return (
     <MainTile
-      id="experience"
+      id=""
       className="pt-20 pb-0 px-4"
       tileTitle={t("experience-title")}
     >
