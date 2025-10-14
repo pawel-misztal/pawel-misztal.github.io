@@ -101,12 +101,12 @@ AddTranslations([
     },
   },
   {
-    id:"catFeeder-title",
+    id: "catFeeder-title",
     t: {
-      pl:"Automatyczny karmnik dla kota 🐈",
-      en:"Automatic cat feeder 🐈"
-    }
-  }
+      pl: "Automatyczny karmnik dla kota 🐈",
+      en: "Automatic cat feeder 🐈",
+    },
+  },
 ]);
 
 export const PROJECTS: ProjectDesc[] = [
@@ -118,7 +118,10 @@ export const PROJECTS: ProjectDesc[] = [
       en: "A web application for managing jobs for a small company",
     },
     imgSrc: ["Zlecenia.webp", "Zlecenia2.webp"],
-    longDescription: undefined,
+    longDescription: {
+      pl: "Projekt stanowi kompleksowe rozwiązanie dla małej firmy, której celem jest usprawnienie procesu obsługi zleceń. Aplikacja została zaprojektowana z myślą o prostocie użytkowania, bezpieczeństwie danych oraz skalowalności. Dzięki zastosowaniu nowoczesnych technologii frontendowych i backendowych, system zapewnia intuicyjny interfejs, solidną architekturę oraz pełną kontrolę nad dostępem użytkowników.\n\nGłówne funkcjonalności:\n- Zarządzanie zleceniami (CRUD) – dodawanie, edytowanie, usuwanie i przeglądanie zleceń\n-Przesyłanie zdjęć – możliwość dodawania dokumentacji fotograficznej do zlece-\n-Drukowanie formularzy – generowanie dokumentów gotowych do wydruk-\n-Role-Based Access Control (RBAC) – kontrola dostępu oparta na rolach użytkowników z wykorzystaniem JW-\n-Ochrona przed współbieżną edycją – zabezpieczenie przed jednoczesną modyfikacją tego samego zleceni-\n-Testy jednostkowe – pokrycie logiki biznesowej testami (XUnit-\n-Nowoczesny frontend – responsywny interfejs oparty na React, TypeScript i Tailwind CS-\n-Solidny backend – ASP.NET Core z Entity Framework Core i PostgreSQ-\n-Bezpieczna autoryzacja – obsługa sesji użytkownika i tokenów JW-\n-Typowana komunikacja frontend-backend – dzięki TypeScript i REST API",
+      en: "This project delivers a comprehensive solution tailored for a small business aiming to streamline its job handling processes. The application was designed with usability, data security, and scalability in mind. By leveraging modern frontend and backend technologies, the system offers an intuitive interface, robust architecture, and full user access control.\n\nKey Features:\n- Order Management (CRUD) – create, edit, delete, and view orders.\n- Image Uploads – attach photographic documentation to orders.\n- Form Printing – generate documents ready for printing.\n- Role-Based Access Control (RBAC) – access control based on user roles using JWT.\n- Concurrency Protection – safeguards against simultaneous edits of the same order.\n- Unit Testing – business logic covered with unit tests (XUnit).\n- Modern Frontend – responsive UI built with React, TypeScript, and Tailwind CSS.\n- Robust Backend – ASP.NET Core with Entity Framework Core and PostgreSQL.\n- Secure Authorization – user session and token management via JWT.\n- Typed Frontend-Backend Communication – enabled by TypeScript and REST API.",
+    },
     technologies: [
       TECHNOLOGIES.cs,
       TECHNOLOGIES.aspnet,
@@ -129,27 +132,35 @@ export const PROJECTS: ProjectDesc[] = [
       TECHNOLOGIES.postgresql,
       TECHNOLOGIES.xUnitTest,
       TECHNOLOGIES.jwt,
-      TECHNOLOGIES.ts_js
+      TECHNOLOGIES.ts_js,
+      TECHNOLOGIES.docker,
     ],
   },
   {
-    title:"catFeeder-title",
-    tags: [TAGS.fullstack,TAGS.mechatronics],
+    title: "catFeeder-title",
+    tags: [TAGS.fullstack, TAGS.mechatronics],
     imgSrc: ["catFeeder.webp"],
-    url: [{description:"Github",link:"https://github.com/pawel-misztal/CatFeeder"}],
-    shortDescription:{
-      pl:"Aplikacji dla użądzenia IoT w postaci automatycznego karmnika dla kota",
-      en:"An application for an IoT device in the form of an automatic cat feeder"},
-    longDescription:{
-      pl:"Projekt oraz wykonanie aplikacji webowej dla mikrokontrolera esp32. Część fizyczna również została wykonana, jednak wyłącznie jako prototyp na płytce stykowej.\n\nCechy projektu:\n- ESPmDNS - wykorzystanie serwera mDNS, co pozwoliło na znajdywanie urządzenia w sieci lokalnej po przyjaznym adresie \"catfeeder.local\"\n- REST API - wykonanie api rest'owego z wykorzystaniem serwera http na mikrokontrolerze esp32\n- frontend - wykorzystanie czystego html z javascript, bez zbędnych bibliotek, pozwoliło na zoptymalizowanie rozmiaru kodu frontendu do 7,31KB! co jest kluczowe w systemach wbudowanych\n- LittleFS - wykorzystanie systemu plików, przez co nie jest koniecznie przebudowaywanie kodu esp32 aby wgrać nowy kod aplikacji internetowej\n- Poziom karmy - wykrywanie poziomu karmy za pomocą czujnika ultradźwiękowego\n- Wydawanie posiłku na rządanie - możliwość wydania porcji posiłku w każdej chwili\n- Harmonogram posiłków - możliwość zaplanowania harmonogramu wydawania posiłków kotu\n- ArduinoJson - wykorzystanie biblioteki JSON do przechowywania danych na mikrokontrolerze",
-      en:"Design and implementation of a web application for the ESP32 microcontroller. The physical part was also completed, but only as a prototype on a breadboard.\n\nProject features:\n- ESPmDNS - using an mDNS server, which allowed for finding a device on the local network using the friendly address \"catfeeder.local\"\n- REST API - implementing a REST API using an HTTP server on the ESP32 microcontroller\n- frontend - using pure HTML with JavaScript, without unnecessary libraries, allowed for optimizing the frontend code size to 7.31KB! which is crucial in embedded systems\n- LittleFS - use of the file system, which makes it unnecessary to rebuild the esp32 code to upload new web application code\n- Food level - detecting the food level using an ultrasonic sensor\n- Serving a meal on demand - the ability to serve a portion of the meal at any time\n- Meal scheduler - the ability to plan a schedule for serving meals to the cat\n- ArduinoJson - using the JSON library to store data on the microcontroller"},
-    technologies:[
+    url: [
+      {
+        description: "Github",
+        link: "https://github.com/pawel-misztal/CatFeeder",
+      },
+    ],
+    shortDescription: {
+      pl: "Aplikacji dla użądzenia IoT w postaci automatycznego karmnika dla kota",
+      en: "An application for an IoT device in the form of an automatic cat feeder",
+    },
+    longDescription: {
+      pl: 'Projekt oraz wykonanie aplikacji webowej dla mikrokontrolera esp32. Część fizyczna również została wykonana, jednak wyłącznie jako prototyp na płytce stykowej.\n\nCechy projektu:\n- ESPmDNS - wykorzystanie serwera mDNS, co pozwoliło na znajdywanie urządzenia w sieci lokalnej po przyjaznym adresie "catfeeder.local"\n- REST API - wykonanie api rest\'owego z wykorzystaniem serwera http na mikrokontrolerze esp32\n- frontend - wykorzystanie czystego html z javascript, bez zbędnych bibliotek, pozwoliło na zoptymalizowanie rozmiaru kodu frontendu do 7,31KB! co jest kluczowe w systemach wbudowanych\n- LittleFS - wykorzystanie systemu plików, przez co nie jest koniecznie przebudowaywanie kodu esp32 aby wgrać nowy kod aplikacji internetowej\n- Poziom karmy - wykrywanie poziomu karmy za pomocą czujnika ultradźwiękowego\n- Wydawanie posiłku na rządanie - możliwość wydania porcji posiłku w każdej chwili\n- Harmonogram posiłków - możliwość zaplanowania harmonogramu wydawania posiłków kotu\n- ArduinoJson - wykorzystanie biblioteki JSON do przechowywania danych na mikrokontrolerze',
+      en: 'Design and implementation of a web application for the ESP32 microcontroller. The physical part was also completed, but only as a prototype on a breadboard.\n\nProject features:\n- ESPmDNS - using an mDNS server, which allowed for finding a device on the local network using the friendly address "catfeeder.local"\n- REST API - implementing a REST API using an HTTP server on the ESP32 microcontroller\n- frontend - using pure HTML with JavaScript, without unnecessary libraries, allowed for optimizing the frontend code size to 7.31KB! which is crucial in embedded systems\n- LittleFS - use of the file system, which makes it unnecessary to rebuild the esp32 code to upload new web application code\n- Food level - detecting the food level using an ultrasonic sensor\n- Serving a meal on demand - the ability to serve a portion of the meal at any time\n- Meal scheduler - the ability to plan a schedule for serving meals to the cat\n- ArduinoJson - using the JSON library to store data on the microcontroller',
+    },
+    technologies: [
       TECHNOLOGIES.cpp,
       TECHNOLOGIES.html,
       TECHNOLOGIES.esp32,
       TECHNOLOGIES.ts_js,
-      TECHNOLOGIES.tailwindcss
-    ]
+      TECHNOLOGIES.tailwindcss,
+    ],
   },
   {
     title: "Notes-title",
@@ -236,7 +247,7 @@ export const PROJECTS: ProjectDesc[] = [
       TECHNOLOGIES.tailwindcss,
       TECHNOLOGIES.expressJS,
       TECHNOLOGIES.postgresql,
-      TECHNOLOGIES.ts_js
+      TECHNOLOGIES.ts_js,
     ],
   },
 
